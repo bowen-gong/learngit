@@ -40,7 +40,7 @@ g. Save the complete cryptogram.
 h. View a confirmation that the name assigned to the cryptogram is unique and
 return to the main menu.
 
-The attributes "puzzleName", "solution" in the *Cryptogram* class are designed to fulfill requirements a and b. The letters to pair with every letter present will be stored in the attribute "letterPairs". The player can view the encoded phrase with operation "viewEncodedPhrase()" in the *Cryptogram* class. The attribute "maximumNumberAllowed" is used to store the input of maximum number of allowed solution attempts. The operation "editCryptogram()" will allow the player to make adjustment to any of the inputs. The operation "saveCryptogram()" allows the player to save the cryptogram. The operation "viewConfirmation()" is designed for the requirement of determining whether the cryptogram name is unique. Operation "returnToMain()" leads the player back to the main menu.
+* The attributes "puzzleName", "solution" in the *Cryptogram* class are designed to fulfill requirements a and b. The letters to pair with every letter present will be stored in the attribute "letterPairs". The player can view the encoded phrase with operation "viewEncodedPhrase()" in the *Cryptogram* class. The attribute "maximumNumberAllowed" is used to store the input of maximum number of allowed solution attempts. The operation "editCryptogram()" will allow the player to make adjustment to any of the inputs. The operation "saveCryptogram()" allows the player to save the cryptogram. The operation "viewConfirmation()" is designed for the requirement of determining whether the cryptogram name is unique. Operation "returnToMain()" leads the player back to the main menu.
 -----
 
 6. To choose and solve a cryptogram, a player will:

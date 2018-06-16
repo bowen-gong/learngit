@@ -1,9 +1,9 @@
-# Requirements
-=====
+# Design Information
+
 
 1. A user will be able to choose to log in as a specific ​player ​or create a new player when starting the application. For simplicity, any authentication is optional, and you may assume there is a single system running the application.
 
-The class *User* has been created with operations "login()" and "CreateNewPlayer()" in order to realize the function of log in and create new players. The *Player* class with attributes of "firstName", "lastName", "userName", "email" and severl operations is designed. In detail, "checkUserNameUniqle()" will check if the username input is uniqle, "createCryptogram()" will allow the player to create new cryptograms, "viewUnsolvedCryptogramList()" will display the full list of unsolved cryptograms, "solveCryptogram()" will allow the player to solve the puzzle with the help of association class *SolvingCryptogram*, "viewCompletedCryptogramList()" will allow the user to see the cryptograms that have been completed, no matter success or not, and finally "viewCryptogramStatistics()" provides a statistical view about the cryptograms.
+* The class *User* has been created with operations "login()" and "CreateNewPlayer()" in order to realize the function of log in and create new players. The *Player* class with attributes of "firstName", "lastName", "userName", "email" and severl operations is designed. In detail, "checkUserNameUniqle()" will check if the username input is uniqle, "createCryptogram()" will allow the player to create new cryptograms, "viewUnsolvedCryptogramList()" will display the full list of unsolved cryptograms, "solveCryptogram()" will allow the player to solve the puzzle with the help of association class *SolvingCryptogram*, "viewCompletedCryptogramList()" will allow the user to see the cryptograms that have been completed, no matter success or not, and finally "viewCryptogramStatistics()" provides a statistical view about the cryptograms.
 -----
 
 2. The application will allow ​players ​to (1) create a cryptogram, (2) choose a cryptogram to solve, (3) solve cryptograms, (4) view their ​list of completed cryptograms​, and (5) view the ​list of cryptogram statistics​.
@@ -17,7 +17,7 @@ The class *User* has been created with operations "login()" and "CreateNewPlayer
 
 3. A cryptogram will have an encoded phrase (encoded with a simple substitution cipher), a solution, and a maximum number of allowed solution attempts. A cryptogram will only encode alphabetic characters, but may include other characters (such as punctuation or white space) in the puzzle, which will remain unaltered. Capitalization is preserved when encoded.
 
-The attributes "encodedPhrase", "solution", "maximumNumberAllowed" in the *Cryptogram* class are designed to fulfill the requirements. There will be statements examing whether the character is alphabetic or other character. The capitalization will be examined as well.
+* The attributes "encodedPhrase", "solution", "maximumNumberAllowed" in the *Cryptogram* class are designed to fulfill the requirements. There will be statements examing whether the character is alphabetic or other character. The capitalization will be examined as well.
 -----
 
 4. To add a player, the user will enter the following player information:
@@ -26,7 +26,7 @@ b. A last name
 c. A unique username
 d. An email
 
-The attributes "firstName", "lastName", "userName", "email" in the *Player* class will be created, and the operation "checkUsernameUniqle()" will be used to check whether the "userName" is uniqle.
+* The attributes "firstName", "lastName", "userName", "email" in the *Player* class will be created, and the operation "checkUsernameUniqle()" will be used to check whether the "userName" is uniqle.
 -----
 
 5. To add a new cryptogram, a player will:
@@ -58,31 +58,31 @@ another.
 g. If the number of incorrect solution attempts increases to the maximum allowed
 number of solution attempts, they will get a result that the cryptogram game was lost, and this cryptogram will be moved to the completed list.
 
-The association class *SolvingCryptogram* is designed to let the player solve the cryptogram. The player is able to view unsolved crytpogram through the operation "viewUnsolvedCryptogram()" in the *Player* class. Then the player can choose and view the cryptogram via the operation "viewCryptogram()" in the *Player* class. "viewNumberIncorrectAttempt()" allows the player to see the number of incorrect solution submissions. The input letter pairs will be stored in the attribute "letterPairs". The operation "matchTogether()" will do the trick and match the replacement and encrypted letters. "viewPotentialSolution()" will show the potential result generated after the match. When the player is satisfied, the operation "submitAnswer()" will be able to submit the solution. If the solution matches the solution in the *Cryptogram* class, the operation "indicateSuccess()" will let the player know it is successful. Otherwise, the operation "incrementNumberIncorrect()" will increase the number of incorrect attempt by 1. "returnToUnsolvedList()" allows the player to go back to the unsolved list whenever the player wants to do so. "indicateLoss()" will take effect when the number of incorrect solution attempts increases to the maximum allowed number of solution attempts. Then the cryptogram will be moved to the completed cryptogram list.
+* The association class *SolvingCryptogram* is designed to let the player solve the cryptogram. The player is able to view unsolved crytpogram through the operation "viewUnsolvedCryptogram()" in the *Player* class. Then the player can choose and view the cryptogram via the operation "viewCryptogram()" in the *Player* class. "viewNumberIncorrectAttempt()" allows the player to see the number of incorrect solution submissions. The input letter pairs will be stored in the attribute "letterPairs". The operation "matchTogether()" will do the trick and match the replacement and encrypted letters. "viewPotentialSolution()" will show the potential result generated after the match. When the player is satisfied, the operation "submitAnswer()" will be able to submit the solution. If the solution matches the solution in the *Cryptogram* class, the operation "indicateSuccess()" will let the player know it is successful. Otherwise, the operation "incrementNumberIncorrect()" will increase the number of incorrect attempt by 1. "returnToUnsolvedList()" allows the player to go back to the unsolved list whenever the player wants to do so. "indicateLoss()" will take effect when the number of incorrect solution attempts increases to the maximum allowed number of solution attempts. Then the cryptogram will be moved to the completed cryptogram list.
 -----
 
 7. The list of unsolved cryptograms will show the cryptogram’s name and the number of incorrect solution attempts (if any) for that player.
 
-The player will be displayed with a list of unsolved cryptograms with the operation "viewCryptogram()" in the *Player* class. The cryptogram's name was saved in the *Cryptogram* class with "puzzleName" attribute and the operation "showCryptogramName()" in the *UnsolvedCryptogramList* class will be able to display the names. The number of incorrect solution attempts is saved in the *SolvingCryptogram* association class with the attribute "numberIncorrectAttempt" and the operation "showIncorrectAttempts()" in the *UnsolvedCryptogramList* class will show the number of incorrect attempts.
+* The player will be displayed with a list of unsolved cryptograms with the operation "viewCryptogram()" in the *Player* class. The cryptogram's name was saved in the *Cryptogram* class with "puzzleName" attribute and the operation "showCryptogramName()" in the *UnsolvedCryptogramList* class will be able to display the names. The number of incorrect solution attempts is saved in the *SolvingCryptogram* association class with the attribute "numberIncorrectAttempt" and the operation "showIncorrectAttempts()" in the *UnsolvedCryptogramList* class will show the number of incorrect attempts.
 -----
 
 8. The list of completed cryptograms for that player will show the cryptogram’s name, whether it was successfully solved, and the date it was completed.
 
-The player is able to view the completed cryptograms with the operation "viewCompletedCryptogramList()" in the *Player* class. The cryptogram's name is stored in the attribute "puzzleName" and the operation "showCryptogramName()" in the *CompletedCryptogramList* class will be able to display the names. Whether the cryptogram is success is stored in the attribute "ifSuccess" in *SolvingCryptogram* association class and the operation "showIfSuccess()" in the *CompletedCryptogramList* class will be able to display the names. The date completed is stored in the attribute "dateCompleted" in the *SolvingCryptogram* association class as well and the operation "showCompletedDate()" in the *CompletedCryptogramList* class will be able to display the completion date.
+* The player is able to view the completed cryptograms with the operation "viewCompletedCryptogramList()" in the *Player* class. The cryptogram's name is stored in the attribute "puzzleName" and the operation "showCryptogramName()" in the *CompletedCryptogramList* class will be able to display the names. Whether the cryptogram is success is stored in the attribute "ifSuccess" in *SolvingCryptogram* association class and the operation "showIfSuccess()" in the *CompletedCryptogramList* class will be able to display the names. The date completed is stored in the attribute "dateCompleted" in the *SolvingCryptogram* association class as well and the operation "showCompletedDate()" in the *CompletedCryptogramList* class will be able to display the completion date.
 -----
 
 9. The list of cryptogram statistics will display a list of cryptograms in order of creation. Choosing each cryptogram will display the date it was created, the number of players who have solved the cryptogram, and the username of the first three players to solve the cryptogram.
 
-The cryptogram statistics will be shown with the operation "viewCryptogramStatistics()" in the *Player* class. Specifically, the operation "showAllCryptograms()" will display all of the cryptograms. The operation "sortCryptograms()" in the *CryptogramStatistics* class will sort them according to the creation time based on the attribute "dateCreated" in the *Cryptogram* class. The date will be displayed by operation "showDateCreated()" in the *CryptogramStatistics* class. The operation "showNumberPlayersSolved()" is designed to fulfill the requirement of showing the number of players solved the cryptogram. Lastly, "showFirstThreePlayersSolved()" will display the first three player's username.
+* The cryptogram statistics will be shown with the operation "viewCryptogramStatistics()" in the *Player* class. Specifically, the operation "showAllCryptograms()" will display all of the cryptograms. The operation "sortCryptograms()" in the *CryptogramStatistics* class will sort them according to the creation time based on the attribute "dateCreated" in the *Cryptogram* class. The date will be displayed by operation "showDateCreated()" in the *CryptogramStatistics* class. The operation "showNumberPlayersSolved()" is designed to fulfill the requirement of showing the number of players solved the cryptogram. Lastly, "showFirstThreePlayersSolved()" will display the first three player's username.
 -----
 
 10. The User Interface (UI) must be intuitive and responsive.
 
-The User Interface will be carefully designed to let the user love our software. All of the input frame and buttons will be easy to operate with.
+* The User Interface will be carefully designed to let the user love our software. All of the input frame and buttons will be easy to operate with.
 -----
 
 11. The performance of the game should be such that players does not experience any considerable lag between their actions and the response of the game.
 
-The software will be designed as smooth and light as possible. No redundant information or function will be introduced to make sure the user will have a wonderful experience about our software. It will be ensured that right after the input or click of the user, the software will make the corresponding reactions.
+* The software will be designed as smooth and light as possible. No redundant information or function will be introduced to make sure the user will have a wonderful experience about our software. It will be ensured that right after the input or click of the user, the software will make the corresponding reactions.
 -----
 
